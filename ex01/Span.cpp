@@ -67,7 +67,7 @@ long	Span::shortestSpan()
 		if (it + 1 == list.end())
 			break ;
 
-		adjacent_subt = abs(static_cast<long>(*it) - *(it + 1));
+		adjacent_subt = std::abs(static_cast<long>(*it) - *(it + 1));
 
 		if (adjacent_subt < shortest)
 			shortest = adjacent_subt;

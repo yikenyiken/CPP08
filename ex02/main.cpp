@@ -3,26 +3,24 @@
 
 int main()
 {
-    MutantStack<int> mstack;
-    mstack.push(5);
-    mstack.push(17);
-    std::cout << mstack.top() << std::endl;
-    mstack.pop();
-    std::cout << mstack.size() << std::endl;
-    mstack.push(3);
-    mstack.push(5);
-    mstack.push(737);
-    //[...]
-    mstack.push(0);
-    MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
-    ++it;
-    --it;
-    while (it != ite)
-    {
+    MutantStack<int> ms;
+
+    ms.push(1);
+    ms.push(2);
+    ms.push(3);
+    
+    std::cout << "ms content: \n";
+    for (MutantStack<int>::iterator it = ms.begin(); it != ms.end(); ++it) //it
         std::cout << *it << std::endl;
-        ++it;
-    }
-    std::stack<int> s(mstack);
-    return 0;
+
+    MutantStack<int> mscpy = ms; //cpy ctor
+
+    std::cout << "mscpy: removing " << mscpy.top() << std::endl; // stack utils
+    mscpy.pop();
+
+    std::cout << "mscpy: size " << mscpy.size() << std::endl;
+
+    std::cout << "ms content: \n";
+    for (MutantStack<int>::iterator it = ms.begin(); it != ms.end(); ++it) // unaffected
+        std::cout << *it << std::endl;
 }
