@@ -2,11 +2,13 @@
 # define Span_HPP
 # include <vector>
 
+typedef std::vector<int> intVec;
+
 class Span
 {
 	private:
-		unsigned int		N;
-		std::vector <int>	list;
+		unsigned int	N;
+		intVec			list;
 
 	public:
 		Span();
@@ -16,6 +18,14 @@ class Span
 
 		Span	&operator = (const Span &rhs);
 		void	addNumber(int num);
+		void	addRange(intVec::iterator start, intVec::iterator end);
+		long	shortestSpan();
+		long	longestSpan();
+	private:
+		class NotEnoughElements : public std::exception
+		{
+			char const	*what() const throw();
+		};
 };
 
 #endif

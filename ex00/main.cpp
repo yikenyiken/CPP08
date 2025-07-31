@@ -14,9 +14,9 @@ int main() {
 
 	try
 	{
-		std::vector<int>::iterator	it = easyfind(vec, static_cast<char>(TOFIND));
+		std::vector<int>::iterator	it = easyfind(vec, TOFIND);
 
-		std::cout << *it << " was found" << std::endl;
+		std::cout << *it << " was found in vec" << std::endl;
 	}
 	catch (std::exception &e)
 	{
